@@ -1,0 +1,6 @@
+matplotlib
+csv
+os
+pathlib
+datetime
+pyowm
