@@ -1,7 +1,12 @@
 from os import popen
 from datetime import datetime
+from os.path import join, dirname
+from dotenv import dotenv_values
 import pyowm 
 
+#.env configuration
+dotenv_path = join(dirname(__file__), '.env')
+config = dotenv_values(dotenv_path)
 
 def format_output(time, latency, weather):
     time = now.strftime('%c')
@@ -22,7 +27,7 @@ def get_cloud_cover(w):
 f = open("output.txt", "a+")
 ip_list = ["8.8.8.8"]
 try:
-    weather = pyowm.OWM('2cec423cc25d56788741c6f0caa3ca9a')
+    weather = pyowm.OWM(config['weather_api'])
 except pyowm.exceptions.api_call_error.APICallTimeoutError:
     weather = 0
 we = get_cloud_cover(weather)
