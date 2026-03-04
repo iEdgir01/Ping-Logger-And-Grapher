@@ -1,30 +1,32 @@
-from matplotlib import pyplot as plt
 import csv
-import os
 from pathlib import Path
 from datetime import datetime
 
-
-def date_object(time):
-    do = datetime.strptime(time, '%c')
-    return do.strftime('%H:%M')
+from matplotlib import pyplot as plt
 
 
-time = []
-average_ping = []
-cloud_cover = []
+def date_object(t):
+    return datetime.strptime(t, '%c').strftime('%H:%M')
+
+
+root_path = Path(__file__).parent
 date = datetime.now().strftime('%d-%m-%y')
 
-with open('E:\Coding\Ping-Logger-And-Grapher/output.txt', 'r') as csvfile:
+times = []
+average_ping = []
+cloud_cover = []
+
+plt.style.use('fivethirtyeight')
+
+with open(root_path / 'output.txt', 'r', encoding='utf-8') as csvfile:
     plots = csv.reader(csvfile, delimiter=',')
     for row in plots:
-        time.append(date_object(row[0]))
+        times.append(date_object(row[0]))
         average_ping.append(int(row[1]))
         cloud_cover.append(int(row[2]))
 
-plt.plot(time, average_ping, marker=".", label=f'{date}')
+plt.plot(times, average_ping, marker=".", label=f'{date}')
 plt.xticks(rotation=45)
-plt.style.use('fivethirtyeight')
 plt.xlabel("Time")
 plt.ylabel("Average Ping")
 plt.title(f"Average Ping over {date}")

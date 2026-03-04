@@ -1,0 +1,3 @@
+matplotlib
+pyowm
+python-dotenv

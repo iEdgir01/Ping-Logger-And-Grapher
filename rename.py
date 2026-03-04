@@ -3,7 +3,7 @@ from datetime import datetime
 
 date = datetime.now().strftime('%d-%m-%y')
 
-root_path = Path('E:\Coding\Ping-Logger-And-Grapher')
+root_path = Path(__file__).parent
 archive = root_path / 'Archive'
 output = root_path / 'output.txt'
 dated_output = archive / f'{date}.txt'
