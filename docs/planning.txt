@@ -1,0 +1,45 @@
+do the pip requirements 
+
+research how to make a windows executable file and installer
+first run
+
+need to get pc location
+update observation = mgr.weather_at_place("city,Code")
+
+get personal API
+by going to https://home.openweathermap.org/users/sign_in
+once signed in 
+navigates to api keys page
+checks if there is an existing one
+otherwise generates one for you
+copies the api key and pastes it in 'ping.py' line 25
+
+once this program is installed it will run every hour
+ for a full day / week / month to consolidate data into readable graphs <- user decides
+
+open a text box explaining these steps
+the application needs to use your location
+and requests you sign in or create an account with openweathermap.org to gather weather data through an API key
+
+allow users to use weather service or deny it
+if denied these requirements will be skipped
+
+accept or deny box
+accept -> loading screen(does all of these actions and navigates you to openweathermap.org to get the API)
+deny -> are you sure?
+yes/ no 
+no -> accept / deny screen
+yes -> moves on to next stage
+
+run portion of code in firstrun.py where it creates a blank output.txt file in the location of the desired install path
+copy this install path and paste it the to code where it is required (outlined in program usage.txt)
+
+at this point the program is fully functional. and working
+
+the next part is just general gui things for ease of sccess and prettiness
+next stage opens up a front end user sytem which allows a gui to check the data
+a) check ping-
+b) view graphs 
+c) to be contined..
+
+last thing to do is consolodate all the files into one file
